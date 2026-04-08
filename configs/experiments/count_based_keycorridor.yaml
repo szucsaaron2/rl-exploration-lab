@@ -1,0 +1,6 @@
+# count_based experiment on KeyCorridorS3R2
+env_name: "KeyCorridorS3R2"
+total_steps: 2_000_000
+exploration_method: "count_based"
+intrinsic_coef: 0.01
+seeds: [0, 1, 2, 3, 4]

@@ -1,0 +1,35 @@
+# Default training configuration for rl-exploration-lab
+# Override any value via command-line or experiment-specific YAML.
+
+# --- Environment ---
+env_name: "KeyCorridorS3R2"
+
+# --- Training ---
+total_steps: 2_000_000
+rollout_steps: 2048
+batch_size: 64
+n_epochs: 4
+lr: 2.5e-4
+gamma: 0.99
+gae_lambda: 0.95
+
+# --- PPO ---
+clip_range: 0.2
+value_coef: 0.5
+entropy_coef: 0.01
+max_grad_norm: 0.5
+
+# --- Exploration ---
+exploration_method: "none"   # Options: none, epsilon_greedy, count_based, rnd
+intrinsic_coef: 0.01         # beta: r_total = r_ext + beta * r_int
+
+exploration_kwargs: {}
+# For RND: {output_dim: 64, hidden_dim: 128, n_layers: 2, lr: 0.001, reward_clip: 1.0}
+# For count_based: {beta: 0.1}
+
+# --- Network ---
+hidden_dim: 128
+embed_dim: 64
+
+# --- Evaluation ---
+seeds: [0, 1, 2, 3, 4]

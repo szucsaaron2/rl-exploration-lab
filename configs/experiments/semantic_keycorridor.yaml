@@ -1,0 +1,6 @@
+# semantic experiment on KeyCorridorS3R2
+env_name: "KeyCorridorS3R2"
+total_steps: 2_000_000
+exploration_method: "semantic"
+intrinsic_coef: 0.01
+seeds: [0, 1, 2, 3, 4]

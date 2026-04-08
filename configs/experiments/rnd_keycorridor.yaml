@@ -1,0 +1,16 @@
+# RND experiment on KeyCorridorS3R2
+# Reproduces thesis baseline (Figure 5.1)
+
+env_name: "KeyCorridorS3R2"
+total_steps: 2_000_000
+exploration_method: "rnd"
+intrinsic_coef: 0.01
+
+exploration_kwargs:
+  output_dim: 64
+  hidden_dim: 128
+  n_layers: 2
+  lr: 0.001
+  reward_clip: 1.0
+
+seeds: [0, 1, 2, 3, 4]
