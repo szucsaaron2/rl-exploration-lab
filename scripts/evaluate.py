@@ -198,7 +198,7 @@ def main():
                 )
                 all_results.append(result)
             except Exception as e:
-                print(f"\n  ❌ FAILED: {method_name} on {env_name}: {e}\n")
+                print(f"\n  FAILED: {method_name} on {env_name}: {e}\n")
 
     # Print final summary
     if all_results:

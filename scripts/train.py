@@ -166,7 +166,7 @@ def main():
     print(f"  Steps:       {config['total_steps']:,}")
     print(f"  Device:      {device}")
     if method != "go_explore":
-        print(f"  Intrinsic β: {config.get('intrinsic_coef', 0.01)}")
+        print(f"  Intrinsic beta: {config.get('intrinsic_coef', 0.01)}")
     print(f"{'='*60}\n")
 
     # === Go-Explore has its own training loop (no PPO in Phase 1) ===
