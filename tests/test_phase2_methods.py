@@ -1,8 +1,8 @@
 """Tests for Phase 2 exploration methods: UCB, ICM, RIDE, NovelD, NGU, AMIGo, Go-Explore."""
 
+import numpy as np
 import pytest
 import torch
-import numpy as np
 
 
 class TestUCB:
@@ -26,7 +26,9 @@ class TestUCB:
 
         # Warm up with a few different actions so total_steps > 1
         for _ in range(5):
-            ucb.compute_intrinsic_reward(torch.randn(1, 147), torch.randn(1, 147), torch.tensor([1]))
+            ucb.compute_intrinsic_reward(
+                torch.randn(1, 147), torch.randn(1, 147), torch.tensor([1])
+            )
 
         r1 = ucb.compute_intrinsic_reward(obs, next_obs, action).item()
         r2 = ucb.compute_intrinsic_reward(obs, next_obs, action).item()
@@ -158,7 +160,7 @@ class TestNovelD:
         next_obs = torch.ones(1, 147) * 0.5
         action = torch.tensor([0])
 
-        r1 = noveld.compute_intrinsic_reward(obs, next_obs, action).item()
+        _r1 = noveld.compute_intrinsic_reward(obs, next_obs, action).item()
         r2 = noveld.compute_intrinsic_reward(obs, next_obs, action).item()
         # ERIR: second visit to same state → zero reward
         assert r2 == 0.0

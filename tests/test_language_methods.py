@@ -1,8 +1,8 @@
 """Tests for language-based exploration methods (Phase 3)."""
 
+import numpy as np
 import pytest
 import torch
-import numpy as np
 
 
 class TestLanguageOracle:
@@ -73,8 +73,8 @@ class TestCLIPEncoder:
 
 class TestSHELMMemory:
     def test_forward_embeddings_mode(self):
-        from rl_exploration_lab.networks.encoders import CLIPEncoder
         from rl_exploration_lab.exploration.shelm.memory import SHELMMemory
+        from rl_exploration_lab.networks.encoders import CLIPEncoder
 
         clip = CLIPEncoder(device="cpu")
         shelm = SHELMMemory(clip, top_k=4, output_mode="embeddings")
@@ -86,8 +86,8 @@ class TestSHELMMemory:
         assert len(tokens[0]) == 4  # top_k tokens per obs
 
     def test_forward_average_mode(self):
-        from rl_exploration_lab.networks.encoders import CLIPEncoder
         from rl_exploration_lab.exploration.shelm.memory import SHELMMemory
+        from rl_exploration_lab.networks.encoders import CLIPEncoder
 
         clip = CLIPEncoder(device="cpu")
         shelm = SHELMMemory(clip, top_k=4, output_mode="average")
@@ -96,8 +96,8 @@ class TestSHELMMemory:
         assert memory.shape == (4, clip.embed_dim)
 
     def test_forward_tokens_mode(self):
-        from rl_exploration_lab.networks.encoders import CLIPEncoder
         from rl_exploration_lab.exploration.shelm.memory import SHELMMemory
+        from rl_exploration_lab.networks.encoders import CLIPEncoder
 
         clip = CLIPEncoder(device="cpu")
         shelm = SHELMMemory(clip, top_k=2, output_mode="tokens")
@@ -106,8 +106,8 @@ class TestSHELMMemory:
         assert memory.shape == (4, clip.embed_dim)
 
     def test_retrieved_tokens_are_strings(self):
-        from rl_exploration_lab.networks.encoders import CLIPEncoder
         from rl_exploration_lab.exploration.shelm.memory import SHELMMemory
+        from rl_exploration_lab.networks.encoders import CLIPEncoder
 
         clip = CLIPEncoder(device="cpu")
         shelm = SHELMMemory(clip, top_k=3, output_mode="average")

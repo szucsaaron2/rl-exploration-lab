@@ -16,10 +16,8 @@ For MiniGrid, we exploit determinism by saving/restoring simulator states.
 from __future__ import annotations
 
 import copy
-import pickle
 from typing import Any
 
-import gymnasium as gym
 import numpy as np
 from tqdm import tqdm
 

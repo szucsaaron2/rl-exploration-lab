@@ -21,19 +21,17 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
-import yaml
-import torch
 import numpy as np
+import torch
+import yaml
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from rl_exploration_lab.evaluation.evaluator import run_evaluation, run_single_experiment
-from rl_exploration_lab.evaluation.metrics import format_results_table, aggregate_results
 
 
 def load_config(config_path: str | None) -> dict:
@@ -97,8 +95,8 @@ def _run_go_explore(config: dict, seeds: list[int], device: str):
     It returns the best trajectory found and archive statistics.
     """
     from rl_exploration_lab.envs.minigrid_wrapper import make_wrapped_env
-    from rl_exploration_lab.exploration.go_explore.go_explore import GoExplorePhase1
     from rl_exploration_lab.exploration.go_explore.cell_repr import MiniGridDomainCell
+    from rl_exploration_lab.exploration.go_explore.go_explore import GoExplorePhase1
 
     env_name = config["env_name"]
     total_steps = config["total_steps"]
@@ -161,7 +159,7 @@ def main():
     seeds = config.get("seeds", [0])
 
     print(f"\n{'='*60}")
-    print(f"  RL Exploration Lab")
+    print("  RL Exploration Lab")
     print(f"  Method:      {method}")
     print(f"  Environment: {env_name}")
     print(f"  Seeds:       {seeds}")
@@ -187,7 +185,7 @@ def main():
             log_dir=f"{args.output}/tensorboard/{method}/{env_name}/seed_{seeds[0]}",
         )
         print(f"\n{'='*60}")
-        print(f"  RESULTS")
+        print("  RESULTS")
         print(f"  Mean reward:  {result.mean_reward:.4f}")
         print(f"  Solve rate:   {result.solve_rate:.1%}")
         print(f"  Episodes:     {len(result.episode_rewards)}")

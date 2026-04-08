@@ -40,7 +40,10 @@ def load_results(results_dir: Path) -> list[AggregatedResult]:
 
 def main():
     parser = argparse.ArgumentParser(description="Generate plots from benchmark results")
-    parser.add_argument("--results", type=str, default="results", help="Results directory with JSON files.")
+    parser.add_argument(
+        "--results", type=str, default="results",
+        help="Results directory with JSON files.",
+    )
     parser.add_argument("--output", type=str, default="plots", help="Output directory for plots.")
     args = parser.parse_args()
 

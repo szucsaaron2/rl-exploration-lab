@@ -13,8 +13,6 @@ language-based novelty measure."
 
 from __future__ import annotations
 
-from collections import defaultdict
-
 import torch
 import torch.optim as optim
 

@@ -9,8 +9,8 @@ from __future__ import annotations
 import time
 from pathlib import Path
 
-import torch
 import numpy as np
+import torch
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 

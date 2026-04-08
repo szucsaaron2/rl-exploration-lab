@@ -89,7 +89,10 @@ class PPOTrainer:
                 ratio = log_ratio.exp()
 
                 surr1 = ratio * advantages
-                surr2 = torch.clamp(ratio, 1.0 - self.clip_range, 1.0 + self.clip_range) * advantages
+                surr2 = (
+                    torch.clamp(ratio, 1.0 - self.clip_range, 1.0 + self.clip_range)
+                    * advantages
+                )
                 policy_loss = -torch.min(surr1, surr2).mean()
 
                 # Value loss

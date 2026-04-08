@@ -1,8 +1,7 @@
 """Unit tests for exploration methods and core components."""
 
-import pytest
-import torch
 import numpy as np
+import torch
 
 
 class TestEpsilonGreedy:

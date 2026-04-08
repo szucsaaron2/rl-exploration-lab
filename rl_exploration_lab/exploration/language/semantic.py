@@ -94,7 +94,9 @@ class SemanticExploration(BaseExploration):
             # Update running stats
             batch_mean = lifelong.mean().item()
             self._lifelong_count += batch_size
-            self._lifelong_mean += (batch_mean - self._lifelong_mean) * batch_size / self._lifelong_count
+            self._lifelong_mean += (
+                (batch_mean - self._lifelong_mean) * batch_size / self._lifelong_count
+            )
 
             # Normalize
             alpha = (lifelong - self._lifelong_mean) / (self._lifelong_var ** 0.5 + 1e-8)

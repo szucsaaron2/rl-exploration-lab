@@ -7,7 +7,6 @@ train, collect results, and aggregate across seeds.
 from __future__ import annotations
 
 import json
-import time
 from pathlib import Path
 
 import numpy as np
@@ -18,28 +17,26 @@ from rl_exploration_lab.evaluation.metrics import (
     AggregatedResult,
     ExperimentResult,
     aggregate_results,
-    format_results_table,
 )
+from rl_exploration_lab.exploration.amigo import AMIGo
 from rl_exploration_lab.exploration.base import BaseExploration
 from rl_exploration_lab.exploration.count_based import CountBased
 from rl_exploration_lab.exploration.epsilon_greedy import EpsilonGreedy
 from rl_exploration_lab.exploration.icm import ICM
-from rl_exploration_lab.exploration.rnd import RND
-from rl_exploration_lab.exploration.ride import RIDE
-from rl_exploration_lab.exploration.noveld import NovelD
-from rl_exploration_lab.exploration.ngu import NGU
-from rl_exploration_lab.exploration.amigo import AMIGo
-from rl_exploration_lab.exploration.ucb import UCB
-from rl_exploration_lab.exploration.language.clip_rnd import CLIPRND
 from rl_exploration_lab.exploration.language.clip_noveld import CLIPNovelD
-from rl_exploration_lab.exploration.language.semantic import SemanticExploration
-from rl_exploration_lab.exploration.language.l_noveld import LNovelD
+from rl_exploration_lab.exploration.language.clip_rnd import CLIPRND
 from rl_exploration_lab.exploration.language.l_amigo import LAMIGo
-from rl_exploration_lab.exploration.shelm.shelm_rnd import SHELMRND
+from rl_exploration_lab.exploration.language.l_noveld import LNovelD
+from rl_exploration_lab.exploration.language.semantic import SemanticExploration
+from rl_exploration_lab.exploration.ngu import NGU
+from rl_exploration_lab.exploration.noveld import NovelD
+from rl_exploration_lab.exploration.ride import RIDE
+from rl_exploration_lab.exploration.rnd import RND
 from rl_exploration_lab.exploration.shelm.shelm_oracle import SHELMOracle
+from rl_exploration_lab.exploration.shelm.shelm_rnd import SHELMRND
+from rl_exploration_lab.exploration.ucb import UCB
 from rl_exploration_lab.networks.policy import ActorCritic
 from rl_exploration_lab.training.trainer import Trainer
-
 
 # Registry of exploration methods
 EXPLORATION_METHODS: dict[str, type] = {

@@ -11,8 +11,6 @@ From the thesis (§5.1): CLIP NovelD was one of the best-performing baselines.
 
 from __future__ import annotations
 
-from collections import defaultdict
-
 import torch
 import torch.optim as optim
 

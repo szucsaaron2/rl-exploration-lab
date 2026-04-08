@@ -122,7 +122,11 @@ def format_results_table(results: list[AggregatedResult]) -> str:
     ]
 
     for i, r in enumerate(results, 1):
-        loss_str = f"{r.mean_exploration_loss:.4f}" if r.mean_exploration_loss is not None else "N/A"
+        loss_str = (
+            f"{r.mean_exploration_loss:.4f}"
+            if r.mean_exploration_loss is not None
+            else "N/A"
+        )
         lines.append(
             f"| {i} | {r.method} | {r.env_name} | {r.mean_reward:.4f} | "
             f"± {r.std_reward:.4f} | {r.mean_solve_rate:.1%} | {loss_str} |"

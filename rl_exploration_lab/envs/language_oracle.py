@@ -11,7 +11,8 @@ generates a structured text description. This enables:
 - SHELM + Oracle: the thesis's proposed improvement (Chapter 6)
 
 MiniGrid object encoding: each tile is (object_type, color, state)
-Object types: 0=unseen, 1=empty, 2=wall, 3=floor, 4=door, 5=key, 6=ball, 7=box, 8=goal, 9=lava, 10=agent
+Object types: 0=unseen, 1=empty, 2=wall, 3=floor, 4=door,
+5=key, 6=ball, 7=box, 8=goal, 9=lava, 10=agent
 Colors: 0=red, 1=green, 2=blue, 3=purple, 4=yellow, 5=grey
 Door states: 0=open, 1=closed, 2=locked
 """

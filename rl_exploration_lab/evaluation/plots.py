@@ -11,11 +11,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import numpy as np
 import matplotlib
+import numpy as np
+
 matplotlib.use("Agg")  # non-interactive backend
 import matplotlib.pyplot as plt
-
 
 # Consistent colors for each method family
 METHOD_COLORS = {
@@ -165,7 +165,7 @@ def plot_method_comparison_bar(
     stds = [std_rewards[i] for i in sorted_idx]
     colors = [METHOD_COLORS.get(n, "#888888") for n in names]
 
-    bars = ax.bar(range(len(names)), means, yerr=stds, capsize=4, color=colors, edgecolor="white")
+    ax.bar(range(len(names)), means, yerr=stds, capsize=4, color=colors, edgecolor="white")
     ax.set_xticks(range(len(names)))
     ax.set_xticklabels(names, rotation=45, ha="right", fontsize=10)
     ax.set_ylabel("Mean Episodic Reward", fontsize=12)

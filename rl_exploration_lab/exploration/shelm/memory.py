@@ -19,7 +19,6 @@ from __future__ import annotations
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 from rl_exploration_lab.networks.encoders import CLIPEncoder
 

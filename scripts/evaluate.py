@@ -9,7 +9,8 @@ Usage:
     python scripts/evaluate.py --suite quick
 
     # Custom: specific methods and envs
-    python scripts/evaluate.py --methods rnd noveld clip_rnd --envs Empty-8x8 KeyCorridorS3R2 --seeds 0 1 2
+    python scripts/evaluate.py --methods rnd noveld clip_rnd \
+        --envs Empty-8x8 KeyCorridorS3R2 --seeds 0 1 2
 
     # Generate plots from existing results
     python scripts/evaluate.py --plot-only --results-dir results/
@@ -27,7 +28,6 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from rl_exploration_lab.evaluation.evaluator import (
-    EXPLORATION_METHODS,
     run_evaluation,
 )
 from rl_exploration_lab.evaluation.metrics import AggregatedResult, format_results_table
@@ -168,8 +168,10 @@ def main():
 
     total_runs = len(methods) * len(envs) * len(seeds)
     print(f"\n{'='*60}")
-    print(f"  RL Exploration Lab — Full Benchmark")
-    print(f"  Methods:      {len(methods)} ({', '.join(methods[:5])}{'...' if len(methods) > 5 else ''})")
+    print("  RL Exploration Lab — Full Benchmark")
+    method_preview = ', '.join(methods[:5])
+    suffix = '...' if len(methods) > 5 else ''
+    print(f"  Methods:      {len(methods)} ({method_preview}{suffix})")
     print(f"  Environments: {len(envs)} ({', '.join(envs)})")
     print(f"  Seeds:        {len(seeds)}")
     print(f"  Steps/run:    {steps:,}")
@@ -201,14 +203,14 @@ def main():
     # Print final summary
     if all_results:
         print(f"\n{'='*60}")
-        print(f"  FINAL RESULTS")
+        print("  FINAL RESULTS")
         print(f"{'='*60}\n")
         print(format_results_table(all_results))
 
         # Save summary
         summary_path = output_dir / "summary.md"
         with open(summary_path, "w") as f:
-            f.write(f"# Benchmark Results\n\n")
+            f.write("# Benchmark Results\n\n")
             f.write(f"Steps per run: {steps:,}\n\n")
             f.write(format_results_table(all_results))
             f.write("\n")

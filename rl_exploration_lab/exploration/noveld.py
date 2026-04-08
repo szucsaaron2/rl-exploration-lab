@@ -17,8 +17,6 @@ NovelD outperforms RND and RIDE on MiniGrid, solving all environments within
 
 from __future__ import annotations
 
-from collections import defaultdict
-
 import torch
 import torch.optim as optim
 

@@ -12,7 +12,6 @@ discovered, or have recently led to discovering new cells.
 
 from __future__ import annotations
 
-import random
 from dataclasses import dataclass, field
 from typing import Any
 
