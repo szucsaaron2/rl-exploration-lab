@@ -1,6 +1,6 @@
 # RL Exploration Lab
 
-[![CI](https://github.com/aronszucs/rl-exploration-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/aronszucs/rl-exploration-lab/actions)
+[![CI](https://github.com/szucsaaron2/rl-exploration-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/szucsaaron2/rl-exploration-lab/actions)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
@@ -32,7 +32,7 @@ A comprehensive library of reinforcement learning exploration methods with unifi
 
 ```bash
 # Clone and install
-git clone https://github.com/aronszucs/rl-exploration-lab.git
+git clone https://github.com/szucsaaron2/rl-exploration-lab.git
 cd rl-exploration-lab
 pip install -e ".[dev]"
 
